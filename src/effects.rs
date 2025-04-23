@@ -45,6 +45,44 @@ macro_rules! to_foreground {
 const RESET: &str = "\x1b[0m";
 
 impl Effect {
+    pub const fn addictiveness(&self) -> f32 {
+        match self {
+            Effect::TropicThunder => 0.803,
+            Effect::Spicy => 0.665,
+            Effect::AntiGravity => 0.611,
+            Effect::Athletic => 0.607,
+            Effect::LongFaced => 0.607,
+            Effect::Zombifying => 0.598,
+            Effect::Glowing => 0.472,
+            Effect::ThoughtProvoking => 0.37,
+            Effect::Jennerising => 0.343,
+            Effect::Energizing => 0.34,
+            Effect::Shrinking => 0.336,
+            Effect::Sneaky => 0.327,
+            Effect::Slippery => 0.309,
+            Effect::Euphoric => 0.235,
+            Effect::Electrifying => 0.235,
+            Effect::BrightEyed => 0.2,
+            Effect::Focused => 0.104,
+            Effect::Refreshing => 0.104,
+            Effect::CalorieDense => 0.1,
+            Effect::Cyclopean => 0.1,
+            Effect::Foggy => 0.1,
+            Effect::Laxative => 0.1,
+            Effect::Munchies => 0.096,
+            Effect::Gingeritis => 0.,
+            Effect::Sedating => 0.,
+            Effect::Balding => 0.,
+            Effect::Calming => 0.,
+            Effect::Disorienting => 0.,
+            Effect::Explosive => 0.,
+            Effect::Paranoia => 0.,
+            Effect::Schizophrenic => 0.,
+            Effect::SeizureInducing => 0.,
+            Effect::Smelly => 0.,
+            Effect::Toxic => 0.,
+        }
+    }
     pub const fn multiplier(&self) -> f32 {
         match self {
             Effect::Shrinking => 0.60,

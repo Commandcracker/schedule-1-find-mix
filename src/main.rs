@@ -11,7 +11,7 @@ mod effects;
 mod ingredients;
 
 fn calc_sell_price(base_price: f32, effects: &[Effect]) -> f32 {
-    let mut sum: f32 = 0.0;
+    let mut sum: f32 = 0.;
     for effect in effects {
         sum += effect.multiplier()
     }
@@ -19,11 +19,23 @@ fn calc_sell_price(base_price: f32, effects: &[Effect]) -> f32 {
 }
 
 fn calc_cost(ingredients: &[Ingredient]) -> f32 {
-    let mut sum: f32 = 0.0;
+    let mut sum: f32 = 0.;
     for ingredient in ingredients {
         sum += ingredient.price() as f32;
     }
     sum
+}
+
+fn calc_addictiveness(depth: u32, effects: &[Effect]) -> f32 {
+    let mut sum: f32 = 0.;
+    for effect in effects {
+        sum += effect.addictiveness();
+    }
+    //TODO: Not tested with Meth and Coke
+    if depth > 0 {
+        sum += 0.05;
+    }
+    sum.clamp(0., 1.)
 }
 
 #[inline(always)]
@@ -103,7 +115,7 @@ fn try_all_combinations_v3(
     generate_combinations(&ingredients, depth, 0, &[], &current_effects, base_price)
 }
 
-fn print_res(base_price: f32, result: CombinationResult) {
+fn print_res(base_price: f32, result: &CombinationResult) {
     let final_sell_price = calc_sell_price(base_price, &result.effects);
     println!("Profit: ${}", result.profit);
     println!("Cost: ${}", result.cost);
@@ -228,6 +240,7 @@ fn main() {
     let result = try_all_combinations_v3(product.value(), depth, product.effect());
     let elapsed_time = start_time.elapsed().as_secs_f64();
     print!("\x1b[2K"); // Clear line
-    print_res(product.value(), result);
+    print_res(product.value(), &result);
+    println!("Addictiveness: {}%", calc_addictiveness(depth, result.effects.as_slice())*100.0);
     println!("Execution Time: {} seconds", elapsed_time);
 }
