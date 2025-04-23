@@ -1,0 +1,17 @@
+[package]
+name = "find_mix"
+version = "0.1.0"
+edition = "2024"
+description = "Schedule 1 best mix brute force finder"
+
+[profile.release]
+codegen-units = 1
+opt-level = 3
+lto = true
+
+[dependencies]
+strum = "0.27.1"
+strum_macros = "0.27.1"
+mimalloc = "0.1.46"
+rayon = "1.10.0"
+clap = "4.5.37"
