@@ -10,10 +10,11 @@ impl<T: PartialEq> VecExtensions<T> for Vec<T> {
     }
 }
 
-use crate::effects::Effect;
 use strum_macros::EnumIter;
 
-#[derive(Copy, Clone, EnumIter, Debug)]
+use crate::effects::Effect;
+
+#[derive(Clone, EnumIter)]
 pub enum Ingredient {
     Cuke,
     Banana,

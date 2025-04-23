@@ -1,4 +1,4 @@
-#[derive(Clone, PartialEq, Debug)]
+#[derive(Clone, PartialEq)]
 pub enum Effect {
     AntiGravity,
     Athletic,
@@ -161,6 +161,6 @@ impl Effect {
     }
     // TODO: make this const
     pub fn colord_name(&self) -> String {
-        format!("{}{}{}",&self.forground(), &self.name(), RESET)
+        format!("{}{}{}", &self.forground(), &self.name(), RESET)
     }
 }

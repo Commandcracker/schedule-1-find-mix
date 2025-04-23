@@ -3,6 +3,10 @@ name = "find_mix"
 version = "0.1.0"
 edition = "2024"
 description = "Schedule 1 best mix brute force finder"
+license = "GPL-3"
+repository = "https://github.com/Commandcracker/schedule-1-find-mix"
+readme = "README.md"
+authors = ["Commandcracker"]
 
 [profile.release]
 codegen-units = 1
