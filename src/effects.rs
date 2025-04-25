@@ -1,4 +1,5 @@
-#[derive(Clone, PartialEq)]
+use strum_macros::EnumIter;
+#[derive(Clone, PartialEq, EnumIter)]
 pub enum Effect {
     AntiGravity,
     Athletic,

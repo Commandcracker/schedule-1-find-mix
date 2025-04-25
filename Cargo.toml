@@ -19,3 +19,10 @@ strum_macros = "0.27.1"
 mimalloc = "0.1.46"
 rayon = "1.10.0"
 clap = "4.5.37"
+
+[dev-dependencies]
+criterion = "0.5.1"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
