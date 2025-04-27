@@ -14,7 +14,7 @@ use strum_macros::EnumIter;
 
 use crate::effects::Effect;
 
-#[derive(Clone, EnumIter)]
+#[derive(Clone, EnumIter, PartialEq)]
 pub enum Ingredient {
     Cuke,
     Banana,
@@ -33,93 +33,114 @@ pub enum Ingredient {
     Addy,
     HorseSemen,
 }
-
 impl Ingredient {
+    pub const fn from_u8(id: u8) -> Option<&'static Self> {
+        match id {
+            0 => Some(&Self::Cuke),
+            1 => Some(&Self::Banana),
+            2 => Some(&Self::Paracetamol),
+            3 => Some(&Self::Donut),
+            4 => Some(&Self::Viagra),
+            5 => Some(&Self::MouthWash),
+            6 => Some(&Self::FluMedicine),
+            7 => Some(&Self::Gasoline),
+            8 => Some(&Self::EnergyDrink),
+            9 => Some(&Self::MotorOil),
+            10 => Some(&Self::MegaBean),
+            11 => Some(&Self::Chili),
+            12 => Some(&Self::Battery),
+            13 => Some(&Self::Iodine),
+            14 => Some(&Self::Addy),
+            15 => Some(&Self::HorseSemen),
+            _ => None,
+        }
+    }
+
     pub const fn price(&self) -> u8 {
         match self {
-            Ingredient::Cuke => 2,
-            Ingredient::Banana => 2,
-            Ingredient::Paracetamol => 3,
-            Ingredient::Donut => 3,
-            Ingredient::Viagra => 4,
-            Ingredient::MouthWash => 4,
-            Ingredient::FluMedicine => 5,
-            Ingredient::Gasoline => 5,
-            Ingredient::EnergyDrink => 6,
-            Ingredient::MotorOil => 6,
-            Ingredient::MegaBean => 7,
-            Ingredient::Chili => 7,
-            Ingredient::Battery => 8,
-            Ingredient::Iodine => 8,
-            Ingredient::Addy => 9,
-            Ingredient::HorseSemen => 9,
+            Self::Cuke => 2,
+            Self::Banana => 2,
+            Self::Paracetamol => 3,
+            Self::Donut => 3,
+            Self::Viagra => 4,
+            Self::MouthWash => 4,
+            Self::FluMedicine => 5,
+            Self::Gasoline => 5,
+            Self::EnergyDrink => 6,
+            Self::MotorOil => 6,
+            Self::MegaBean => 7,
+            Self::Chili => 7,
+            Self::Battery => 8,
+            Self::Iodine => 8,
+            Self::Addy => 9,
+            Self::HorseSemen => 9,
         }
     }
     pub const fn name(&self) -> &'static str {
         match self {
-            Ingredient::Cuke => "Cuke",
-            Ingredient::Banana => "Banana",
-            Ingredient::Paracetamol => "Paracetamol",
-            Ingredient::Donut => "Donut",
-            Ingredient::Viagra => "Viagra",
-            Ingredient::MouthWash => "Mouth Wash",
-            Ingredient::FluMedicine => "Flu Medicine",
-            Ingredient::Gasoline => "Gasoline",
-            Ingredient::EnergyDrink => "Energy Drink",
-            Ingredient::MotorOil => "Motor Oil",
-            Ingredient::MegaBean => "Mega Bean",
-            Ingredient::Chili => "Chili",
-            Ingredient::Battery => "Battery",
-            Ingredient::Iodine => "Iodine",
-            Ingredient::Addy => "Addy",
-            Ingredient::HorseSemen => "Horse Semen",
+            Self::Cuke => "Cuke",
+            Self::Banana => "Banana",
+            Self::Paracetamol => "Paracetamol",
+            Self::Donut => "Donut",
+            Self::Viagra => "Viagra",
+            Self::MouthWash => "Mouth Wash",
+            Self::FluMedicine => "Flu Medicine",
+            Self::Gasoline => "Gasoline",
+            Self::EnergyDrink => "Energy Drink",
+            Self::MotorOil => "Motor Oil",
+            Self::MegaBean => "Mega Bean",
+            Self::Chili => "Chili",
+            Self::Battery => "Battery",
+            Self::Iodine => "Iodine",
+            Self::Addy => "Addy",
+            Self::HorseSemen => "Horse Semen",
         }
     }
     pub const fn emoji(&self) -> &'static str {
         match self {
-            Ingredient::Cuke => "🥤",
-            Ingredient::Banana => "🍌",
-            Ingredient::Paracetamol => "⚪",
-            Ingredient::Donut => "🍩",
-            Ingredient::Viagra => "🔵",
-            Ingredient::MouthWash => "💧",
-            Ingredient::FluMedicine => "🧴",
-            Ingredient::Gasoline => "⛽",
-            Ingredient::EnergyDrink => "⚡",
-            Ingredient::MotorOil => "🛢️",
-            Ingredient::MegaBean => "🫘",
-            Ingredient::Chili => "🌶️",
-            Ingredient::Battery => "🔋",
-            Ingredient::Iodine => "🧪",
-            Ingredient::Addy => "💊",
-            Ingredient::HorseSemen => "🐎",
+            Self::Cuke => "🥤",
+            Self::Banana => "🍌",
+            Self::Paracetamol => "⚪",
+            Self::Donut => "🍩",
+            Self::Viagra => "🔵",
+            Self::MouthWash => "💧",
+            Self::FluMedicine => "🧴",
+            Self::Gasoline => "⛽",
+            Self::EnergyDrink => "⚡",
+            Self::MotorOil => "🛢️",
+            Self::MegaBean => "🫘",
+            Self::Chili => "🌶️",
+            Self::Battery => "🔋",
+            Self::Iodine => "🧪",
+            Self::Addy => "💊",
+            Self::HorseSemen => "🐎",
         }
     }
     pub const fn abbreviation(&self) -> &'static str {
         match self {
-            Ingredient::Cuke => "Cu",
-            Ingredient::Banana => "Ba",
-            Ingredient::Paracetamol => "Pa",
-            Ingredient::Donut => "Dn",
-            Ingredient::Viagra => "Vi",
-            Ingredient::MouthWash => "MW",
-            Ingredient::FluMedicine => "FM",
-            Ingredient::Gasoline => "Ga",
-            Ingredient::EnergyDrink => "ED",
-            Ingredient::MotorOil => "MO",
-            Ingredient::MegaBean => "MB",
-            Ingredient::Chili => "Ch",
-            Ingredient::Battery => "Bt",
-            Ingredient::Iodine => "Io",
-            Ingredient::Addy => "Ad",
-            Ingredient::HorseSemen => "HS",
+            Self::Cuke => "Cu",
+            Self::Banana => "Ba",
+            Self::Paracetamol => "Pa",
+            Self::Donut => "Dn",
+            Self::Viagra => "Vi",
+            Self::MouthWash => "MW",
+            Self::FluMedicine => "FM",
+            Self::Gasoline => "Ga",
+            Self::EnergyDrink => "ED",
+            Self::MotorOil => "MO",
+            Self::MegaBean => "MB",
+            Self::Chili => "Ch",
+            Self::Battery => "Bt",
+            Self::Iodine => "Io",
+            Self::Addy => "Ad",
+            Self::HorseSemen => "HS",
         }
     }
     // TODO: Use vector without order maybe even a hashmap
     pub fn apply(&self, effects: &[Effect]) -> Vec<Effect> {
         let mut result = Vec::new();
         match self {
-            Ingredient::Cuke => {
+            Self::Cuke => {
                 for effect in effects {
                     match effect {
                         Effect::Euphoric => result.push_if_not_exists(Effect::Laxative),
@@ -133,9 +154,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Energizing);
-                result
             }
-            Ingredient::Banana => {
+            Self::Banana => {
                 for effect in effects {
                     match effect {
                         Effect::Calming => result.push_if_not_exists(Effect::Sneaky),
@@ -151,9 +171,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Gingeritis);
-                result
             }
-            Ingredient::Paracetamol => {
+            Self::Paracetamol => {
                 for effect in effects {
                     match effect {
                         Effect::Calming => result.push_if_not_exists(Effect::Slippery),
@@ -170,9 +189,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Sneaky);
-                result
             }
-            Ingredient::Donut => {
+            Self::Donut => {
                 for effect in effects {
                     match effect {
                         Effect::AntiGravity => result.push_if_not_exists(Effect::Slippery),
@@ -186,9 +204,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::CalorieDense);
-                result
             }
-            Ingredient::Viagra => {
+            Self::Viagra => {
                 for effect in effects {
                     match effect {
                         Effect::Athletic => result.push_if_not_exists(Effect::Sneaky),
@@ -200,9 +217,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::TropicThunder);
-                result
             }
-            Ingredient::MouthWash => {
+            Self::MouthWash => {
                 for effect in effects {
                     match effect {
                         Effect::Calming => result.push_if_not_exists(Effect::AntiGravity),
@@ -213,9 +229,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Balding);
-                result
             }
-            Ingredient::FluMedicine => {
+            Self::FluMedicine => {
                 for effect in effects {
                     match effect {
                         Effect::Athletic => result.push_if_not_exists(Effect::Munchies),
@@ -232,9 +247,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Sedating);
-                result
             }
-            Ingredient::Gasoline => {
+            Self::Gasoline => {
                 for effect in effects {
                     match effect {
                         Effect::Disorienting => result.push_if_not_exists(Effect::Glowing),
@@ -252,9 +266,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Toxic);
-                result
             }
-            Ingredient::EnergyDrink => {
+            Self::EnergyDrink => {
                 for effect in effects {
                     match effect {
                         Effect::Disorienting => result.push_if_not_exists(Effect::Electrifying),
@@ -270,9 +283,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Athletic);
-                result
             }
-            Ingredient::MotorOil => {
+            Self::MotorOil => {
                 for effect in effects {
                     match effect {
                         Effect::Energizing => result.push_if_not_exists(Effect::Munchies),
@@ -284,9 +296,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Slippery);
-                result
             }
-            Ingredient::MegaBean => {
+            Self::MegaBean => {
                 for effect in effects {
                     match effect {
                         Effect::Athletic => result.push_if_not_exists(Effect::Laxative),
@@ -303,9 +314,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Foggy);
-                result
             }
-            Ingredient::Chili => {
+            Self::Chili => {
                 for effect in effects {
                     match effect {
                         Effect::AntiGravity => result.push_if_not_exists(Effect::TropicThunder),
@@ -318,9 +328,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Spicy);
-                result
             }
-            Ingredient::Battery => {
+            Self::Battery => {
                 for effect in effects {
                     match effect {
                         Effect::Cyclopean => result.push_if_not_exists(Effect::Glowing),
@@ -333,9 +342,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::BrightEyed);
-                result
             }
-            Ingredient::Iodine => {
+            Self::Iodine => {
                 for effect in effects {
                     match effect {
                         Effect::Calming => result.push_if_not_exists(Effect::Balding),
@@ -348,9 +356,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::Jennerising);
-                result
             }
-            Ingredient::Addy => {
+            Self::Addy => {
                 for effect in effects {
                     match effect {
                         Effect::Explosive => result.push_if_not_exists(Effect::Euphoric),
@@ -362,9 +369,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::ThoughtProvoking);
-                result
             }
-            Ingredient::HorseSemen => {
+            Self::HorseSemen => {
                 for effect in effects {
                     match effect {
                         Effect::AntiGravity => result.push_if_not_exists(Effect::Calming),
@@ -375,8 +381,8 @@ impl Ingredient {
                     }
                 }
                 result.push_if_not_exists(Effect::LongFaced);
-                result
             }
         }
+        result
     }
 }

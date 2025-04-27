@@ -22,12 +22,11 @@ Cost: \$35 \
 Sell Price: \$179.20001 \
 Ingredients: Banana → Cuke → Gasoline → Horse Semen → Cuke → Mega Bean → Viagra → Mouth Wash \
 Effects: <span style="color:rgb(133, 228, 89)">Glowing</span>, <span style="color:rgb(85, 200, 253)">Electrifying</span>, <span style="color:rgb(35, 91, 203)">Anti-Gravity</span>, <span style="color:rgb(190, 247, 253)">Bright-Eyed</span>, <span style="color:rgb(254, 217, 97)">Long Faced</span>, <span style="color:rgb(254, 193, 116)">Cyclopean</span>, <span style="color:rgb(176, 176, 175)">Foggy</span>, <span style="color:rgb(254, 159, 71)">Tropic Thunder</span>, <span style="color:rgb(199, 146, 50)">Balding</span> \
-Execution Time: 29.0604887 seconds
+Execution Time: 11.3880009 seconds
 
 ## Todos
 
 - Add reverse calculator
-- Make it so ingredients can be disabled
 - Add rounding and fix floating point issues (only use int?)
 
 ## Products
