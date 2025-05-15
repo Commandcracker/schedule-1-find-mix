@@ -12,7 +12,7 @@
 
 ## Example
 
-![](0_8.png)
+![0_8](https://github.com/user-attachments/assets/d53e12c0-9944-493c-849d-08ddfc17e060)
 
 $ find_mix 0 8
 
@@ -107,14 +107,14 @@ $\text{Profit}=\text{Sell Price}-\text{Cost}$
 
 ## Effects Additives
 
-$
+```math
 \text{Additives} = \min\left( \max\left( \sum \text{Effect Additives} +
 \begin{cases}
 0.6 & \text{if Meth} \\
 0.4 & \text{if Coke} \\
 0.05 & \text{if Marijuana and ingredients > 0}
 \end{cases},\ 0 \right),\ 1 \right)
-$
+```
 
 When Displayed: $\lfloor\text{Additives}*100\rfloor$
 
