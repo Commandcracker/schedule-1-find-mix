@@ -79,7 +79,7 @@ fn main() {
                     1  = Banana\n\
                     2  = Paracetamol\n\
                     3  = Donut\n\
-                    4  = Viagra\n\
+                    4  = Viagor\n\
                     5  = Mouth Wash\n\
                     6  = Flu Medicine\n\
                     7  = Gasoline\n\
@@ -142,7 +142,7 @@ fn main() {
     print_res(product.value(), &result);
     println!(
         "Addictiveness: {}%",
-        calc_addictiveness(depth, result.effects.as_slice()) * 100.0
+        calc_addictiveness(product, depth, result.effects.as_slice()) * 100.0
     );
     //println!("Addictiveness: {}%", (calc_addictiveness(depth, result.effects.as_slice())*100.0).floor());
     println!("Execution Time: {} seconds", elapsed_time);

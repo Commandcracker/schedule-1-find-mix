@@ -82,7 +82,7 @@ impl Ingredient {
             Self::Banana => "Banana",
             Self::Paracetamol => "Paracetamol",
             Self::Donut => "Donut",
-            Self::Viagra => "Viagra",
+            Self::Viagra => "Viagor",
             Self::MouthWash => "Mouth Wash",
             Self::FluMedicine => "Flu Medicine",
             Self::Gasoline => "Gasoline",

@@ -1,6 +1,7 @@
 use crate::effects::Effect;
 use crate::ingredients::Ingredient;
 use rayon::prelude::*;
+use crate::product::Product;
 
 pub mod effects;
 pub mod ingredients;
@@ -26,14 +27,23 @@ pub fn calc_cost(ingredients: &[Ingredient]) -> f32 {
 }
 
 #[inline(always)]
-pub fn calc_addictiveness(depth: u32, effects: &[Effect]) -> f32 {
+pub fn calc_addictiveness(product: &Product, depth: u32, effects: &[Effect]) -> f32 {
     let mut sum: f32 = 0.;
     for effect in effects {
         sum += effect.addictiveness();
     }
-    //TODO: Not tested with Meth and Coke
-    if depth > 0 {
-        sum += 0.05;
+    match product { 
+        Product::Meth => {
+            sum += 0.6;
+        }
+        Product::Coke => {
+            sum += 0.4;
+        }
+        _ => {
+            if depth > 0 {
+                sum += 0.05;
+            }
+        }
     }
     sum.clamp(0., 1.)
 }

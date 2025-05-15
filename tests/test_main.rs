@@ -2,6 +2,8 @@ use find_mix::effects::Effect;
 use find_mix::ingredients::Ingredient;
 use find_mix::{calc_addictiveness, calc_cost, calc_profit, calc_sell_price};
 use strum::IntoEnumIterator;
+use find_mix::product::Product;
+
 #[test]
 fn test_calc_sell_price() {
     let all_effects: Vec<Effect> = Effect::iter().collect();
@@ -40,6 +42,7 @@ fn test_calc_profit_negative() {
 #[test]
 fn test_calc_addictiveness() {
     let effects = vec![Effect::Sedating];
-    let result = calc_addictiveness(1, effects.as_slice());
+    let product = Product::OgKush;
+    let result = calc_addictiveness(&product, 1, effects.as_slice());
     assert_eq!(result, 0.05);
 }

@@ -18,7 +18,7 @@ strum = "0.27.1"
 strum_macros = "0.27.1"
 mimalloc = "0.1.46"
 rayon = "1.10.0"
-clap = "4.5.37"
+clap = "4.5.38"
 
 [dev-dependencies]
 criterion = "0.5.1"

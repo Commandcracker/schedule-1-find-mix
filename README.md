@@ -50,7 +50,7 @@ $\text{Cost}=\sum\text{Ingredient Prices}$
 | Banana       | $2    |
 | Paracetamol  | $3    |
 | Donut        | $3    |
-| Viagra       | $4    |
+| Viagor       | $4    |
 | Mouth Wash   | $4    |
 | Flu Medicine | $5    |
 | Gasoline     | $5    |
@@ -107,8 +107,16 @@ $\text{Profit}=\text{Sell Price}-\text{Cost}$
 
 ## Effects Additives
 
-$\text{Additives}=\min(\max(\sum\text{Effect Additives}+0.05\cdot\mathbb{1}_{\sum\text{Ingredients}>0},0),1)$ \
-When Displayed: $\text{floor}\lfloor\text{Additives}*100\rfloor$
+$
+\text{Additives} = \min\left( \max\left( \sum \text{Effect Additives} +
+\begin{cases}
+0.6 & \text{if Meth} \\
+0.4 & \text{if Coke} \\
+0.05 & \text{if Marijuana and ingredients > 0}
+\end{cases},\ 0 \right),\ 1 \right)
+$
+
+When Displayed: $\lfloor\text{Additives}*100\rfloor$
 
 | Effect                                                          | Additives |
 |-----------------------------------------------------------------|-----------|
